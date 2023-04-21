@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    border: 1px solid rgb(148, 17, 17);
+}
+
+
+#toolbar {
+    width: 25%;
+    
+    padding: 5px;
+    background-color: #0f1629;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+  }
+.graph{
+    width: 80%;
+    padding: 5px;
+    background-color: #0f1629;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+}
+
+#mynetwork {
+    width: 100%;
+    height: 100%;
+    
+    background-color: #0f1629;
+  }
+#depth-label{
+    margin-top: 10px;
+    width: 70%;
+    height: 3%;
+    border-radius: 8px;
+    margin-left: 5%;
+
+}
+#depth-button{
+    height: 4%;
+    width: 20%;
+    background-color: #6870c6;
+    margin: 0 auto;
+    border-radius: 8px;
+
+}
+.button1{
+    width: 100%;
+    height: 26px;
+    background-color: #0f1629;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+   
+    cursor: pointer;
+}
+.table-container{
+    border: 1px solid rgb(255, 255, 255) !important;
+    border-collapse: collapse;
+    margin-top: 10px;
+   
+  }
+.table-container th{
+    border: 1px solid rgb(255, 255, 255) !important;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    
+}
+.table-container td{
+    border: 1px solid rgb(255, 255, 255) !important;
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+.table-scroll{
+    
+    overflow: auto;
+    height: 50%;
+    width:70%;
+    margin-left: 15%;
+    margin-top: 30px;
+}
+#submit{
+    margin-top: 10px;
+    width: 80%;
+    height: 40px;
+    background-color: #6870c6;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+    cursor: pointer;
+    border-radius: 8px;
+    margin-left: 10%;
+
+}
+#submit:hover{
+    background-color: #9aabda;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+    cursor: pointer;
+}
+#clear{
+    width: 80%;
+    height: 40px;
+    background-color:  #6870c6;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 8px;
+    margin-left: 10%;
+
+    }
+#clear:hover{
+    background-color: #9aabda;
+    border: 1px solid rgba(17, 85, 34, 0.664);
+    cursor: pointer;
+}
+.man a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 1px solid rgb(122, 121, 121);
+    
+  }
+ 
+  .ran a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 1px solid rgb(121,121, 121);
+  }
+  .rm{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 35px;
+    font-size: 20px;
+    font-weight: 600;
+    color: aliceblue;
+}
+#info1{
+    width:100%;
+    height:10%;
+    border-radius: 8px;
+    color: rgba(243, 193, 15, 0.854);
+    display: flex;
+     margin-top: 3%;
+     
+}
+#info1 p{
+   font-size: 15px;
+    font-weight: 500;
+}
+#right{
+text-align: center;    
+  
+}
+#left{
+   width:100%;
+    height: 100%;    
+    
+}
+
+#right .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+   
+    /* Position the tooltiptext */
+    position: relative;
+    
+    
+  }
+  
+  #right:hover .tooltiptext {
+    visibility: visible;
+  }
+  .tooltiptext{
+    margin-left: 10px;
+    right:40%;
+  }
+  #operation-panel{
+   
+    width: 20%;
+    height: 100%;
+    background-color: #0f1629;
+    
+  }
+  #operations{
+    width: 100%;
+    height: 100%;
+    background-color: #0f1629;
+    font-size: 20px;
+   
+   
+    color: yellow;
+    padding-left: 10px;
+    margin-top: 5%;
+    
+  }
+  .msg{
+    
+    width:20%;
+    overflow-x: scroll;
+  
+  }
+  .light{
+    color:green;
+  }
