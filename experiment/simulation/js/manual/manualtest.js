@@ -1,6 +1,7 @@
 
 let depthLabelInput = document.getElementById("depth-label");
 
+
 // document.getElementById('depth-button');
   let nodeArray1 = [];
   let edgeArray1 = [];
@@ -26,8 +27,10 @@ let depthLabelInput = document.getElementById("depth-label");
     var network = new vis.Network(container, data, options);
    
  network.setOptions(grapOptions);
+ disableSubmitButton();
 //add eventlisterner to create a new node
 network.on("doubleClick", function (params) {
+  
   //more than 3 nodes can't be added without edges
 
   if(params.nodes.length ===0 && params.edges.length ===0){
@@ -60,7 +63,16 @@ network.on("doubleClick", function (params) {
   
 }
 );
-
+//enable submit button
+function enableSubmitButton(){
+  
+    document.getElementById("submit").disabled = false;
+  
+}
+//disable submit button
+function disableSubmitButton(){
+  document.getElementById("submit").disabled = true;
+}
 let selectedNode = null;
 //drag to connect edges
 var level=0;
@@ -164,11 +176,13 @@ network.on("hold", function (params) {
 console.log(nodeArray1);
 //add eventlisterner to updatelabel
 network.on("doubleClick", function (params) {
+  
   params.event = "[original event]";
   if (params.nodes.length == 1) {
     //if node has no child
     // if (nodes.get(params.nodes[0]).firstchild == null) {
 if(params.nodes[0]<=depthLabelInput.value){
+  enableSubmitButton();
       //after value entered deselect node
       selectedNode = null;
       var id = params.nodes[0];

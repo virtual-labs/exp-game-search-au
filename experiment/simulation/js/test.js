@@ -1,5 +1,6 @@
 
 let depthLabelInput = document.getElementById("depth-label");
+disableButton();
 
 document.getElementById('depth-button');
   let nodeArray = [];
@@ -25,7 +26,15 @@ document.getElementById('depth-button');
  network.setOptions(grapOptions);
     //create node based on depth value
     function addGraph() {
-
+      
+      //if submit button is clicked,prompt to enter the terminal node value
+      
+      
+      
+      
+       
+      
+     
       let depth = document.getElementById('depth-label').value;
       //depth value between 3-10
       if(depth<3 || depth>10){
@@ -86,9 +95,14 @@ document.getElementById('depth-button');
           updateLabel(nodeArray[i].id, nodeArray[i].minmaxValue, nodeArray[i].leftchild, nodeArray[i].rightchild);
         }
       }
+      if(onclick = document.getElementById('submit')){
+        alert("Enter the terminal node value to enable the submit button");
+      }
     };
     
 
+
+    
   
     //if terminal node is clicked, prompt to enter the value,only number is allowed
     network.on("click", function (params) {
@@ -104,6 +118,7 @@ document.getElementById('depth-button');
               updateLabel(params.nodes[0], value, nodeArray[params.nodes[0] - 1].leftchild, nodeArray[params.nodes[0] - 1].rightchild);
               values.push([params.nodes[0], value]);
               console.log(values);
+              enableButton();
             }
           }
         }
@@ -169,6 +184,22 @@ document.getElementById('depth-button');
       console.log(edgeArray);
     }
     }
+    
+      
+    //if the terminal value is entered the submit button is enabled
+    function enableButton(){
+     
+        document.getElementById("submit").disabled = false;
+      
+    }
+    //if the terminal value is not entered the submit button is disabled
+    function disableButton(){
+      document.getElementById("submit").disabled = true;
+    }
+    
+
+      
+
 
    
    //copy the value of values to nodeArray
