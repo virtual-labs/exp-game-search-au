@@ -95,10 +95,17 @@ document.getElementById('depth-button');
           updateLabel(nodeArray[i].id, nodeArray[i].minmaxValue, nodeArray[i].leftchild, nodeArray[i].rightchild);
         }
       }
-      if(onclick = document.getElementById('submit')){
-        alert("Enter the terminal node value to enable the submit button");
-      }
+      // if(onclick = document.getElementById('submit')){
+      //   alert("Enter the terminal node value to enable the submit button");
+      // }
+      
     };
+    //alert box to enter the terminal node value
+    //after graph is created, prompt to enter the terminal node value
+    
+
+
+
     
 
 
@@ -113,7 +120,10 @@ document.getElementById('depth-button');
           if (value != null) {
             if (isNaN(value)) {
               alert("Please enter a number");
+
             }
+            
+            
             else {
               updateLabel(params.nodes[0], value, nodeArray[params.nodes[0] - 1].leftchild, nodeArray[params.nodes[0] - 1].rightchild);
               values.push([params.nodes[0], value]);
