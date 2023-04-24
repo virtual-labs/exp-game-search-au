@@ -187,10 +187,16 @@ if(params.nodes[0]<=depthLabelInput.value){
       selectedNode = null;
       var id = params.nodes[0];
       var label = prompt("Enter new label for node " + id);
+      //if label is not a number then alert
+      if(isNaN(label)){
+        alert("Please enter a number");
+        return;
+      }
       var firstchild = null;
       var secondchild = null;
       var thirdchild = null;
       var fourthchild = null;
+
       updateLabel1(id, label,firstchild,secondchild, thirdchild,fourthchild);
 values1.push([params.nodes[0], label,firstchild,secondchild, thirdchild,fourthchild])
 
