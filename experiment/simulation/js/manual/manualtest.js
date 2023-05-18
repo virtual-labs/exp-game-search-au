@@ -1,6 +1,6 @@
 
 let depthLabelInput = document.getElementById("depth-label");
-
+flag=0;
 
 // document.getElementById('depth-button');
   let nodeArray1 = [];
@@ -139,8 +139,7 @@ network.on("click", function (params) {
   updateDepth();
   }
 );
-console.log(nodeArray1);
-console.log(edgeArray1);
+
 
 
 //function to update depth of tree
@@ -148,12 +147,15 @@ function updateDepth(){
   var size=nodes.get().length;
   var s=''+size;
  depthLabelInput.value = s;
- console.log(depthLabelInput.value);
+
 
 }
 
 //update depth of tree
-  console.log(depthLabelInput.value);
+ 
+
+
+
 
 
 //add eventlisterner hold edge to delete edge
@@ -173,7 +175,7 @@ network.on("hold", function (params) {
   }
 }
 );
-console.log(nodeArray1);
+
 //add eventlisterner to updatelabel
 network.on("doubleClick", function (params) {
   
@@ -187,16 +189,10 @@ if(params.nodes[0]<=depthLabelInput.value){
       selectedNode = null;
       var id = params.nodes[0];
       var label = prompt("Enter new label for node " + id);
-      //if label is not a number then alert
-      if(isNaN(label)){
-        alert("Please enter a number");
-        return;
-      }
       var firstchild = null;
       var secondchild = null;
       var thirdchild = null;
       var fourthchild = null;
-
       updateLabel1(id, label,firstchild,secondchild, thirdchild,fourthchild);
 values1.push([params.nodes[0], label,firstchild,secondchild, thirdchild,fourthchild])
 
@@ -205,7 +201,9 @@ values1.push([params.nodes[0], label,firstchild,secondchild, thirdchild,fourthch
   }
 }
 );
-console.log(nodeArray1);
+
+
+
 
 //add eventlisterner to deselect node
 network.on("click", function (params) {
@@ -230,19 +228,9 @@ function pushTableArray(){
   }
 }
 
-//if user create complete tree then call minmax() function
-function minmax() {
-  var size = nodes.get().length;
-  if (size == 2 ** document.getElementById('depth-label').value - 1) {
-    minmax1();
-  }
-  else {
-    alert("Please create a complete tree");
-  }
-}
 //minmax algorith traverse the tree and find minimum and maximum value
 function minmax1() {
- 
+  flag=1;
   var alpha = -100000;
   var beta = 100000;
   let ismax = true;
@@ -264,7 +252,7 @@ function minmax1() {
       updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
       updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
       nodes.update({ id: i, label: nodeArray1[i-1].nodeValue,  font : {color : '#000001' ,size : 25}});
-      console.log(nodeArray1[i-1].nodeValue);
+     
     }
     //if node is not leaf node
     else{
@@ -311,7 +299,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.max(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue,nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue,nodeArray1[nodeArray1[i-1].fourthchild-1].nodeValue);
          updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           // updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+         
           var msg="Node "+i+"= Max ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           " , "+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+
           " , "+'<br>'+"Thirdchild "+nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue+
@@ -331,7 +319,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.max(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue,nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue);
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+        
           var msg="Node "+i+"= Max ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           ","+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+
           ","+'<br>'+"Thirdchild "+nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
@@ -347,7 +335,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.max(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue);
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+         
 
           var msg="Node "+i+"= Max ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           ","+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
@@ -363,7 +351,7 @@ function minmax1() {
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
         
-          console.log(nodeArray1[i-1].nodeValue);
+        
           var msg="Node "+i+"= Max ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
           showoperation1(msg);
 
@@ -382,7 +370,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.min(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue,nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue,nodeArray1[nodeArray1[i-1].fourthchild-1].nodeValue);
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+         
           var msg="Node "+i+"= Min("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           ","+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+
           ","+'<br>'+"Thirdchild "+nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue+
@@ -400,7 +388,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.min(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue,nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue);
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+        
           var msg="Node "+i+"= Min ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           ","+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+
           ","+'<br>'+"Thirdchild "+nodeArray1[nodeArray1[i-1].thirdchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
@@ -415,7 +403,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=Math.min(nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue,nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue);
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+        
           var msg="Node "+i+"= Min ("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+
           ","+'<br>'+"Secondchild "+nodeArray1[nodeArray1[i-1].secondchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
           showoperation1(msg);
@@ -428,7 +416,7 @@ function minmax1() {
           nodeArray1[i-1].nodeValue=nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue;
           updateEdgeLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
           //updateLabel1(i,nodeArray1[i-1].nodeValue,nodeArray1[i-1].firstchild,nodeArray1[i-1].secondchild,nodeArray1[i-1].thirdchild,nodeArray1[i-1].fourthchild);
-          console.log(nodeArray1[i-1].nodeValue);
+         
           var msg="Node "+i+"= Min("+"Firstchild "+nodeArray1[nodeArray1[i-1].firstchild-1].nodeValue+")=<span class ='light' >"+nodeArray1[i-1].nodeValue;
           showoperation1(msg);
 
@@ -445,6 +433,10 @@ function minmax1() {
   displayInfo1();
   //highlight
   highlightNode1();
+  if(flag==1){
+    //display message
+   disableSubmitButton();
+  }
 }
 info1=0;
 function displayInfo1(){  
@@ -477,13 +469,13 @@ function updateEdgeLabel1(id, label,firstchild,secondchild, thirdchild,fourthchi
   edgeArray1[id - 2].font.size = 20;
   //update graph
   edges.update(edgeArray1);
-  console.log(edgeArray1);
+ 
 }
 }
   
 //function to update graph label
 function updateLabel1(id, label,firstchild,secondchild, thirdchild,fourthchild) {
-console.log("update label"+id);
+
 //convert label to string
 label=label.toString();
   nodes.update({ id: id, label: label, firstchild:firstchild, secondchild:secondchild, thirdchild:thirdchild, fourthchild:fourthchild }); 
