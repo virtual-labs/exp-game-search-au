@@ -1,4 +1,4 @@
-
+flag=0;
 let depthLabelInput = document.getElementById("depth-label");
 disableButton();
 
@@ -84,8 +84,7 @@ document.getElementById('depth-button');
         }
       }
     
-      console.log(nodeArray);
-      console.log(edgeArray);
+    
     
       
     
@@ -95,17 +94,8 @@ document.getElementById('depth-button');
           updateLabel(nodeArray[i].id, nodeArray[i].minmaxValue, nodeArray[i].leftchild, nodeArray[i].rightchild);
         }
       }
-      // if(onclick = document.getElementById('submit')){
-      //   alert("Enter the terminal node value to enable the submit button");
-      // }
-      
+     
     };
-    //alert box to enter the terminal node value
-    //after graph is created, prompt to enter the terminal node value
-    
-
-
-
     
 
 
@@ -120,14 +110,11 @@ document.getElementById('depth-button');
           if (value != null) {
             if (isNaN(value)) {
               alert("Please enter a number");
-
             }
-            
-            
             else {
               updateLabel(params.nodes[0], value, nodeArray[params.nodes[0] - 1].leftchild, nodeArray[params.nodes[0] - 1].rightchild);
               values.push([params.nodes[0], value]);
-              console.log(values);
+             
               enableButton();
             }
           }
@@ -191,7 +178,7 @@ document.getElementById('depth-button');
       edgeArray[id - 2].font.size = 20;
       //update graph
       edges.update(edgeArray);
-      console.log(edgeArray);
+      
     }
     }
     
@@ -220,7 +207,7 @@ document.getElementById('depth-button');
 
       }
 
-      console.log(nodeArray);
+    
       pushValue();
     }  
 
@@ -229,11 +216,12 @@ document.getElementById('depth-button');
       for(let i=0;i<nodeArray.length;i++){
         tableArray.push([nodeArray[i].id,nodeArray[i].label,nodeArray[i].leftchild,nodeArray[i].rightchild,nodeArray[i].nodeValue]);
       }
-      console.log(tableArray);
+
     }
 
     //minmax algorith traverse the tree and find minimum and maximum value
     function minmax( ) {
+      flag = 1;
       //set alpha to -1000
       let alpha = -2000;
       //set beta to 1000
@@ -422,6 +410,9 @@ document.getElementById('depth-button');
       displayNodeValue();
       highlightResult();
       displayInfo();
+      if(flag==1){
+        disableButton();
+      }
     }
 //update edge label
     
