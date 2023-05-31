@@ -1,5 +1,6 @@
 ### References
-vis.js- 
-https://visjs.github.io/vis-network/docs/network/
+[vis.js](https://visjs.github.io/vis-network/docs/network/)
 
-w3schools- https://www.w3schools.com/
+[Javascript](https://www.w3schools.com/)
+
+[min-max algorithm](https://www.javatpoint.com/mini-max-algorithm-in-ai)

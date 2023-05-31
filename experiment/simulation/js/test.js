@@ -1,4 +1,16 @@
-flag=0;
+// Create a script element
+const script = document.createElement('script');
+
+// Set the source attribute to the location of vis-network.min.js
+script.src = 'js/vis-network.min.js';
+
+// Set the script type
+script.type = 'text/javascript';
+
+// Append the script element to the document's head or body
+document.head.appendChild(script);
+
+let flag=0;
 let depthLabelInput = document.getElementById("depth-label");
 disableButton();
 
@@ -21,19 +33,13 @@ document.getElementById('depth-button');
     var network = new vis.Network(container, data, options);
 
  //call grapOtion in vis.network
-    var network = new vis.Network(container, data, options);
+    //var network = new vis.Network(container, data, options);
    
  network.setOptions(grapOptions);
     //create node based on depth value
     function addGraph() {
       
       //if submit button is clicked,prompt to enter the terminal node value
-      
-      
-      
-      
-       
-      
      
       let depth = document.getElementById('depth-label').value;
       //depth value between 3-10
@@ -47,23 +53,23 @@ document.getElementById('depth-button');
       var i;
       for (i = 1; i <= count; i++) {
         //id
-        id = i;
+        let id = i;
     
         //node label
-        label = "Node "+id ;
+         let label = "Node "+id ;
         //leftchild
         if(i*2<=count){
-          leftchild=i*2;
+         var  leftchild=i*2;
         }
         else{
-          leftchild=null;
+         var leftchild=null;
         }
         //rightchild
         if(i*2+1<=count){
-          rightchild=i*2+1;
+         var rightchild=i*2+1;
         }
         else{
-          rightchild=null;
+         var rightchild=null;
         }
     
         //add node to the node array
@@ -141,26 +147,7 @@ document.getElementById('depth-button');
       edges.update(edgeArray);
     }
      //function to update label
-     function updateLabel1(id, label, leftchild, rightchild) {
-      //update label
      
-      nodes.update({ id: id, label: label, leftchild: leftchild, rightchild: rightchild });
-      
-      //update node array
-      //edge label
-      edgeArray[id * 2 - 1].label = label;
-      edgeArray[id * 2].label = label;
-
-      //update graph
-      nodeArray[id - 1].leftchild = leftchild;
-      nodeArray[id - 1].rightchild = rightchild;
-      //update edge array
-      // edgeArray[id * 2 - 1].to = leftchild;
-      // edgeArray[id * 2].to = rightchild;
-      //update graph
-      nodes.update(nodeArray);
-      edges.update(edgeArray);
-    }
     //function to update edge label
     function updateEdgeLabel(id, label, leftchild, rightchild) {
       edges.update({ id: id, label: label, leftchild: leftchild, rightchild: rightchild });
@@ -204,10 +191,7 @@ document.getElementById('depth-button');
      
       for(let i=0;i<values.length;i++){
         nodeArray[i].nodeValue=values[i][1];
-
-      }
-
-    
+      }   
       pushValue();
     }  
 
@@ -218,7 +202,10 @@ document.getElementById('depth-button');
       }
 
     }
-
+//hide op_info
+    function hideOpInfo(){
+      document.getElementById("op_info").style.display = "none";
+    }
     //minmax algorith traverse the tree and find minimum and maximum value
     function minmax( ) {
       flag = 1;
@@ -410,6 +397,8 @@ document.getElementById('depth-button');
       displayNodeValue();
       highlightResult();
       displayInfo();
+      hideOpInfo();
+      network.off("click");
       if(flag==1){
         disableButton();
       }
@@ -419,7 +408,7 @@ document.getElementById('depth-button');
 
 
 
-   info1=0;
+   let info1=0;
     function displayInfo(){  
        //only run one time
   if(info1==0){
@@ -456,9 +445,9 @@ table.innerHTML = header + cells;
   function highlightResult() {
     if(nodeArray[0].nodeValue==nodeArray[0].nodeValue){
       //highlight root
-      nodes.update({ id: 1, color:'yellow' });
+      nodes.update({ id: 1, color:'green' });
       //highlight edge
-      edges.update({ from: 1, color: 'yellow'});
+      edges.update({ from: 1, color: 'green'});
     }
     
     //for each node
@@ -501,9 +490,10 @@ table.innerHTML = header + cells;
           //if left child value is equal to node value
           if (nodeArray[nodeArray[i].leftchild - 1].nodeValue == nodeArray[i].nodeValue) {
             //highlight edges using animation-delay: 5s;
-            edges.update({ from: nodeArray[i].id, to: nodeArray[i].leftchild, color: 'yellow'});
+            //edges.update({ from: nodeArray[i].id, to: nodeArray[i].leftchild, color: 'yellow'});
+            edges.update({ from: nodeArray[i].id, to: nodeArray[i].leftchild, color: {color:'green'} });
             //highlight node
-            nodes.update({ id: nodeArray[i].leftchild, color: 'yellow' });
+            nodes.update({ id: nodeArray[i].leftchild, color: 'green' });
           }
         }
         //if right child is not null
@@ -513,9 +503,9 @@ table.innerHTML = header + cells;
           //if right child value is equal to node value
           if (nodeArray[nodeArray[i].rightchild - 1].nodeValue == nodeArray[i].nodeValue) {
             //highlight edge
-            edges.update({from: nodeArray[i].id, to: nodeArray[i].rightchild, color: 'yellow' });
+            edges.update({from: nodeArray[i].id, to: nodeArray[i].rightchild, color: {color:'green'}  });
             //highlight node
-            nodes.update({ id: nodeArray[i].rightchild, color: 'yellow' });
+            nodes.update({ id: nodeArray[i].rightchild, color: 'green' });
           }
         }
       }
@@ -555,3 +545,23 @@ table.innerHTML = header + cells;
 
 
 
+  function updateLabel1(id, label, leftchild, rightchild) {
+    //update label
+   
+    nodes.update({ id: id, label: label, leftchild: leftchild, rightchild: rightchild });
+    
+    //update node array
+    //edge label
+    edgeArray[id * 2 - 1].label = label;
+    edgeArray[id * 2].label = label;
+
+    //update graph
+    nodeArray[id - 1].leftchild = leftchild;
+    nodeArray[id - 1].rightchild = rightchild;
+    //update edge array
+    // edgeArray[id * 2 - 1].to = leftchild;
+    // edgeArray[id * 2].to = rightchild;
+    //update graph
+    nodes.update(nodeArray);
+    edges.update(edgeArray);
+  }
