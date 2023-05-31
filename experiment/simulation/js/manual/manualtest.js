@@ -1,6 +1,16 @@
+// Create a script element
+const script = document.createElement('script');
 
+// Set the source attribute to the location of vis-network.min.js
+script.src = 'js/vis-network.min.js';
+
+// Set the script type
+script.type = 'text/javascript';
+
+// Append the script element to the document's head or body
+document.head.appendChild(script);
 let depthLabelInput = document.getElementById("depth-label");
-flag=0;
+let flag=0;
 
 // document.getElementById('depth-button');
   let nodeArray1 = [];
@@ -24,11 +34,11 @@ flag=0;
     
   
  //call grapOtion in vis.network
-    var network = new vis.Network(container, data, options);
+//var network = new vis.Network(container, data, options);
    
  network.setOptions(grapOptions);
  disableSubmitButton();
-//add eventlisterner to create a new node
+//add eventlisterner to create a new nodes
 network.on("doubleClick", function (params) {
   
   //more than 3 nodes can't be added without edges
@@ -73,15 +83,13 @@ function enableSubmitButton(){
 function disableSubmitButton(){
   document.getElementById("submit").disabled = true;
 }
+
+
 let selectedNode = null;
-//drag to connect edges
-var level=0;
+
+//to connect edges
 network.on("click", function (params) {
-
- 
-
-
-  if(params.nodes.length >0 && params.nodes[0] === selectedNode){
+ if(params.nodes.length >0 && params.nodes[0] === selectedNode){
     selectedNode = null;
   }
   //if node is a child of another node then don't select
@@ -103,8 +111,8 @@ network.on("click", function (params) {
   //update leftchild and rightchild from fromnode and tonode
   else{
     //
-    var fromNode = nodes.get(selectedNode);
-    var toNode = nodes.get(params.nodes[0]);
+    // var fromNode = nodes.get(selectedNode);
+    // var toNode = nodes.get(params.nodes[0]);
     var label ="";
     // check if toNode is a child of any other nodes
     for (var i = 0; i < nodeArray1.length; i++) {
@@ -149,13 +157,8 @@ function updateDepth(){
  depthLabelInput.value = s;
 
 
+
 }
-
-//update depth of tree
- 
-
-
-
 
 
 //add eventlisterner hold edge to delete edge
@@ -176,6 +179,9 @@ network.on("hold", function (params) {
 }
 );
 
+
+
+
 //add eventlisterner to updatelabel
 network.on("doubleClick", function (params) {
   
@@ -189,16 +195,23 @@ if(params.nodes[0]<=depthLabelInput.value){
       selectedNode = null;
       var id = params.nodes[0];
       var label = prompt("Enter new label for node " + id);
+      if(label != null){
+        if(isNaN(label)){
+          alert("Please enter a number");
+        }
+        else{
       var firstchild = null;
       var secondchild = null;
       var thirdchild = null;
       var fourthchild = null;
       updateLabel1(id, label,firstchild,secondchild, thirdchild,fourthchild);
 values1.push([params.nodes[0], label,firstchild,secondchild, thirdchild,fourthchild])
+        }
 
       
     }
   }
+}
 }
 );
 
@@ -227,12 +240,26 @@ function pushTableArray(){
     tableArray1.push([nodeArray1[i].id,nodeArray1[i].label,nodeArray1[i].firstchild,nodeArray1[i].secondchild,nodeArray1[i].thirdchild,nodeArray1[i].fourthchild,nodeArray1[i].nodeValue]);
   }
 }
+//hide tooltiptext id
+function hideTooltip(){
+  document.getElementById("tooltiptext").style.visibility="hidden";
+}
+
+function minmax() {
+  var size = nodes.get().length;
+  if (size == 2 ** document.getElementById('depth-label').value - 1) {
+    minmax1();
+  }
+  else {
+    alert("Please create a complete tree");
+  }
+}
 
 //minmax algorith traverse the tree and find minimum and maximum value
 function minmax1() {
   flag=1;
-  var alpha = -100000;
-  var beta = 100000;
+  // var alpha = -100000;
+  // var beta = 100000;
   let ismax = true;
   var depth = 0;
   depth = Math.floor(Math.log2(nodes.get().length));
@@ -433,12 +460,17 @@ function minmax1() {
   displayInfo1();
   //highlight
   highlightNode1();
+  //disable double click event on update label
+network.off("doubleClick");
+network.off("click");
+  hideTooltip();
   if(flag==1){
     //display message
    disableSubmitButton();
+   console.log("falg=1");
   }
 }
-info1=0;
+let info1=0;
 function displayInfo1(){  
   //only run one time
   if(info1==0){
@@ -517,9 +549,9 @@ function highlightNode1(){
   //if root is max
   if(nodeArray1[0].nodeValue==nodeArray1[0].nodeValue){
     //highlight root
-    nodes.update({ id: 1, color: '#e28c2a' });
+    nodes.update({ id: 1, color: 'yellow' });
     //highlight edge
-    edges.update({ id: 1, color: 'red' });
+    edges.update({ id: 1, color: {color:'#ff383f'}  });
   }
   
   //for each node
@@ -527,25 +559,25 @@ function highlightNode1(){
 //if node is a max node
     if(nodeArray1[i].nodeValue==nodeArray1[i].nodeValue){
       //highlight node
-      nodes.update({ id: nodeArray1[i].id, color: '#e28c2a' });
+      nodes.update({ id: nodeArray1[i].id, });
       //highlight edge
-      edges.update({ id: nodeArray1[i].id, color: 'red' });
+      edges.update({ id: nodeArray1[i].id, color: {color:'#ff383f'}  });
     }
     //if node has 2 children
     if(nodeArray1[i].firstchild!=null && nodeArray1[i].secondchild!=null && nodeArray1[i].thirdchild==null && nodeArray1[i].fourthchild==null){
       //if firstchild is max
       if (nodeArray1[nodeArray1[i].firstchild - 1].nodeValue ==nodeArray1[nodeArray1[i].firstchild-1].nodeValue){
         //highlight firstchild
-        nodes.update({ id: nodeArray1[i].firstchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].firstchild,  });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].firstchild, color: {color:'#ff383f'}  });
       }
       //if secondchild is max
       else if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
-        nodes.update({ id: nodeArray1[i].secondchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].secondchild,  });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].secondchild, color: {color:'#ff383f'}  });
       }
     }
     //if node has 3 children
@@ -553,23 +585,23 @@ function highlightNode1(){
       //if firstchild is max
       if (nodeArray1[nodeArray1[i].firstchild - 1].nodeValue ==nodeArray1[nodeArray1[i].firstchild-1].nodeValue){
         //highlight firstchild
-        nodes.update({ id: nodeArray1[i].firstchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].firstchild,  });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].firstchild, color: {color:'#ff383f'} });
       }
       //if secondchild is max
       else  if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
-        nodes.update({ id: nodeArray1[i].secondchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].secondchild, });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].secondchild,color: {color:'#ff383f'}  });
       }
       //if thirdchild is max
       else  if (nodeArray1[nodeArray1[i].thirdchild - 1].nodeValue ==nodeArray1[nodeArray1[i].thirdchild-1].nodeValue){
         //highlight thirdchild
-        nodes.update({ id: nodeArray1[i].thirdchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].thirdchild, });
         //highlight edge
-        edges.update({ id: nodeArray1[i].thirdchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].thirdchild, color: {color:'#ff383f'}  });
       }
     }
     //if node has 4 children
@@ -577,31 +609,31 @@ function highlightNode1(){
       //if firstchild is max
       if (nodeArray1[nodeArray1[i].firstchild - 1].nodeValue ==nodeArray1[nodeArray1[i].firstchild-1].nodeValue){
         //highlight firstchild
-        nodes.update({ id: nodeArray1[i].firstchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].firstchild, });
 
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].firstchild, color: {color:'#ff383f'} });
       }
       //if secondchild is max
       else  if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
-        nodes.update({ id: nodeArray1[i].secondchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].secondchild, });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].secondchild, color: {color:'#ff383f'}  });
       }
       //if thirdchild is max
       else  if (nodeArray1[nodeArray1[i].thirdchild - 1].nodeValue ==nodeArray1[nodeArray1[i].thirdchild-1].nodeValue){
         //highlight thirdchild
-        nodes.update({ id: nodeArray1[i].thirdchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].thirdchild, });
         //highlight edge
-        edges.update({ id: nodeArray1[i].thirdchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].thirdchild, color: {color:'#ff383f'}  });
       }
       //if fourthchild is max
       else  if (nodeArray1[nodeArray1[i].fourthchild - 1].nodeValue ==nodeArray1[nodeArray1[i].fourthchild-1].nodeValue){
         //highlight fourthchild
-        nodes.update({ id: nodeArray1[i].fourthchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].fourthchild, });
         //highlight edge
-        edges.update({ id: nodeArray1[i].fourthchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].fourthchild, color: {color:'#ff383f'}  });
       }
     }
     //if node has 1 child
@@ -609,9 +641,9 @@ function highlightNode1(){
       //if firstchild is max
       if (nodeArray1[nodeArray1[i].firstchild - 1].nodeValue ==nodeArray1[nodeArray1[i].firstchild-1].nodeValue){
         //highlight firstchild
-        nodes.update({ id: nodeArray1[i].firstchild, color: '#e28c2a' });
+        nodes.update({ id: nodeArray1[i].firstchild});
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'red' });
+        edges.update({ id: nodeArray1[i].firstchild, color: {color:'#ff383f'} });
       }
     }
 
@@ -620,7 +652,7 @@ function highlightNode1(){
       //highlight node
       nodes.update({ id: nodeArray1[i].id, color: 'green' });
       //highlight edge
-      edges.update({ id: nodeArray1[i].id, color: 'green' });
+      edges.update({from: nodeArray1[i].id, color: {color:'green'} });
     }
 
     //if node has 4 children
@@ -630,28 +662,28 @@ function highlightNode1(){
         //highlight firstchild
         nodes.update({ id: nodeArray1[i].firstchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id,color: {color:'green'} });
       }
       //if secondchild is min
       else  if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
         nodes.update({ id: nodeArray1[i].secondchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'} });
       }
       //if thirdchild is min
       else  if (nodeArray1[nodeArray1[i].thirdchild - 1].nodeValue ==nodeArray1[nodeArray1[i].thirdchild-1].nodeValue){
         //highlight thirdchild
         nodes.update({ id: nodeArray1[i].thirdchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].thirdchild, color: 'green' });
+        edges.update({from: nodeArray1[i].id, color: {color:'green'} });
       }
       //if fourthchild is min
       else  if (nodeArray1[nodeArray1[i].fourthchild - 1].nodeValue ==nodeArray1[nodeArray1[i].fourthchild-1].nodeValue){
         //highlight fourthchild
         nodes.update({ id: nodeArray1[i].fourthchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].fourthchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'} });
       }
     }
     //if node has 3 children
@@ -661,21 +693,21 @@ function highlightNode1(){
         //highlight firstchild
         nodes.update({ id: nodeArray1[i].firstchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'}});
       }
       //if secondchild is min
       else  if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
         nodes.update({ id: nodeArray1[i].secondchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'} });
       }
       //if thirdchild is min
       else  if (nodeArray1[nodeArray1[i].thirdchild - 1].nodeValue ==nodeArray1[nodeArray1[i].thirdchild-1].nodeValue){
         //highlight thirdchild
         nodes.update({ id: nodeArray1[i].thirdchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].thirdchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'} });
       }
     }
     //if node has 2 children
@@ -685,14 +717,14 @@ function highlightNode1(){
         //highlight firstchild
         nodes.update({ id: nodeArray1[i].firstchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id, color: {color:'green'} });
       }
       //if secondchild is min
       else  if (nodeArray1[nodeArray1[i].secondchild - 1].nodeValue ==nodeArray1[nodeArray1[i].secondchild-1].nodeValue){
         //highlight secondchild
         nodes.update({ id: nodeArray1[i].secondchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].secondchild, color: 'green' });
+        edges.update({from: nodeArray1[i].id , color: {color:'green'} });
       }
     }
 
@@ -703,7 +735,7 @@ function highlightNode1(){
         //highlight firstchild
         nodes.update({ id: nodeArray1[i].firstchild, color: 'green' });
         //highlight edge
-        edges.update({ id: nodeArray1[i].firstchild, color: 'green' });
+        edges.update({ from: nodeArray1[i].id , color: {color:'green'} });
       }
 
       
@@ -733,21 +765,3 @@ function resetGraph(){
   //reset all
   location.reload();
 }
-
-
-
-
-
-    
-    
-
-  
-    
-
-//
-
-
-
-
-
-   
