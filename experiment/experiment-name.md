@@ -1,2 +1,1 @@
-## Mini-Max Algorithm
-
+## To perform and visualize Game Search
