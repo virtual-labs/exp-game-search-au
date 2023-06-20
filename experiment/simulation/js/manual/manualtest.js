@@ -242,7 +242,7 @@ function pushTableArray(){
 }
 //hide tooltiptext id
 function hideTooltip(){
-  document.getElementById("tooltiptext").style.visibility="hidden";
+  document.getElementById("tooltiptext").style.display="none";
 }
 
 function minmax() {

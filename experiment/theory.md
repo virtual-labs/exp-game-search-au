@@ -6,4 +6,3 @@ A backtracking algorithm is used to find a solution to computational problems in
 
 <br>
 
-![min-max.PNG](\exp-game-search\experiment\images\i-minimax-algorithm-in-ai-6-320.webp)
