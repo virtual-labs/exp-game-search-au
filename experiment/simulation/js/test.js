@@ -103,7 +103,9 @@ document.getElementById('depth-button');
      
     };
     
-
+    function hideTooltip(){
+      document.getElementById("tooltiptext").style.display="none";
+    }
 
     
   
@@ -399,6 +401,7 @@ document.getElementById('depth-button');
       displayInfo();
       hideOpInfo();
       network.off("click");
+      hideTooltip();
       if(flag==1){
         disableButton();
       }
