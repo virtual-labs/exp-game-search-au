@@ -1,0 +1,83 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "What is the goal of the minmax algorithm in AI?",
+        "answers": {
+          "a": "To maximize the utility function",
+          "b": "To minimize the cost function",
+          "c": "To find the optimal move in a two-player zero-sum game",
+          "d": "To find the shortest path in a graph"
+          
+        },
+        
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "What is the minmax value of a node in a game tree?",
+        "answers": {
+          "a": "The maximum possible utility value that can be obtained from that node",
+          "b": " The minimum possible utility value that can be obtained from that node",
+          "c": "The average of the maximum and minimum utility values that can be obtained from that node",
+          "d": "The sum of the maximum and minimum utility values that can be obtained from that node"
+          
+        },
+       
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "What is alpha-beta pruning in the minmax algorithm?",
+        "answers": {
+          "a": "A technique for reducing the size of the game tree",
+          "b": " A technique for assigning weights to the edges of the game tree",
+          "c": "A technique for selecting the best move from the game tree",
+          "d": " A technique for improving the accuracy of the utility function"
+          
+        },
+       
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "Which of the following is a disadvantage of the minmax algorithm?",
+        "answers": {
+          "a": " It requires a complete game tree to be generated",
+          "b": "It only works for two-player zero-sum games",
+          "c": "It can be slow for large game trees",
+          "d":"It cannot handle incomplete information games"
+          
+        },
+       
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+  
+      {
+        "question": "What is the depth-limited minmax algorithm?",
+        "answers": {
+          "a": "A version of the minmax algorithm that limits the depth of the game tree",
+          "b": "A version of the minmax algorithm that assigns weights to the edges of the game tree",
+          "c": "A version of the minmax algorithm that uses a heuristic evaluation function",
+          "d": "A version of the minmax algorithm that works for incomplete information games"
+         
+        },
+        
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "What is the purpose of the evaluation function in the minmax algorithm?",
+        "answers": {
+          "a": "To assign weights to the edges of the game tree",
+          "b": "To generate the game tree ",
+          "c": "To determine the utility value of a node in the game tree"
+        },
+        
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  
