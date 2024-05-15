@@ -4,6 +4,3 @@ The min max algorithm in AI, popularly known as the minimax, is a backtracking a
 
 A backtracking algorithm is used to find a solution to computational problems in such a way that a candidate is incrementally built towards a solution, one step at a time. And the candidate that fails to complete a solution is immediately abandoned. 
 
-<br>
-
-![min-max.PNG](\exp-game-search\experiment\images\i-minimax-algorithm-in-ai-6-320.webp)

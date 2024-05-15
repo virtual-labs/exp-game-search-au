@@ -1,8 +1,5 @@
-## Min-Max Algorithm
 
-In the min max algorithm in AI, there are two players, Maximiser and Minimiser. Both these players play the game as one tries to get the highest score possible or the maximum benefit while the opponent tries to get the lowest score or the minimum benefit.
-
-## The steps for the min max algorithm in AI can be stated as follows:
+## The simulation steps
 
 1. Two modes: Random and Manual. By default, the Random mode is loaded with a random graph.
 2. Enter the desired depth in the text area and click "Save" to create a binary tree structure.
@@ -17,46 +14,33 @@ In the min max algorithm in AI, there are two players, Maximiser and Minimiser. 
 
 ### Random
 
-<br>
 
-![game1.PNG](images/game1.png)
+<p>choose  "Random" from the given options</br>
+Enter the depth and click on save button </p>
 
-<br>
-
-
-![game2.PNG](images/game2.PNG)
-
-<br>
-
-
-![game3.PNG](images/game3.PNG)
-
-<br>
+<img src="images/game1.png" alt="game1.PNG">
+<P>Binary tree structure is shown below
+<img src="images/game2.png" alt="game2.PNG">
+<p>Click on a terminal node to add values to that node.</p>
+<img src="images/game3.png" alt="game3.PNG">
+<p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm</p>
+<img src="images/game.png" alt="game.PNG">
 
 
-![game.PNG](images/game.PNG)
 
 
 ### Manual
 
-<br>
 
-![gm1.PNG](images/gm1.PNG)
+<p>choose  "Manual" from the given options</br>
+Click on the canvas to create new nodes  </p>
+<img src="images/gm1.png" alt="gm1.PNG">
+<img src="images/gm2.png" alt="gm2.PNG">
+<p> Select the nodes to connect the edges</p>
+<img src="images/gm3.png" alt="gm3.PNG">
+<p>Doubleclick the terminal node to Add Values</p>
+<img src="images/gm4.png" alt="gm4.PNG">
+<p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm. The left side shows a table with the node values, and the right side shows the iteration process.</p>
 
-<br>
+<img src="images/gm5.png" alt="gm5.PNG">
 
-![gm2.PNG](images/gm2.PNG)
-
-<br>
-
-![gm3.PNG](images/gm3.PNG)
-
-<br>
-
-
-![gm4.PNG](image/gm4.PNG)
-
-<br>
-
-
-![gm5.PNG](images/gm5.PNG)
