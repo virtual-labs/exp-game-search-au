@@ -1,5 +1,5 @@
-
-## The simulation steps
+<h3>Procedure</h3>
+<h5>The simulation steps</h5>
 
 1. Two modes: Random and Manual. By default, the Random mode is loaded with a random graph.
 2. Enter the desired depth in the text area and click "Save" to create a binary tree structure.
@@ -12,8 +12,7 @@
 
 
 
-### Random
-
+<h6>Random</h6>
 
 <p>choose  "Random" from the given options</br>
 Enter the depth and click on save button </p>
@@ -29,12 +28,13 @@ Enter the depth and click on save button </p>
 
 
 
-### Manual
+<h6> Manual</h6>
 
+<p>choose  "Manual" from the given options</p>
 
-<p>choose  "Manual" from the given options</br>
-Click on the canvas to create new nodes  </p>
 <img src="images/gm1.png" alt="gm1.PNG">
+<p>Click on the canvas to create new nodes  </p>
+
 <img src="images/gm2.png" alt="gm2.PNG">
 <p> Select the nodes to connect the edges</p>
 <img src="images/gm3.png" alt="gm3.PNG">
