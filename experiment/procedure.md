@@ -14,6 +14,7 @@
 
 ### Random
 
+
 <p>choose  "Random" from the given options</br>
 Enter the depth and click on save button </p>
 
@@ -27,21 +28,19 @@ Enter the depth and click on save button </p>
 
 
 
+
 ### Manual
+
 
 <p>choose  "Manual" from the given options</br>
 Click on the canvas to create new nodes  </p>
 <img src="images/gm1.png" alt="gm1.PNG">
-
-
 <img src="images/gm2.png" alt="gm2.PNG">
 <p> Select the nodes to connect the edges</p>
-
 <img src="images/gm3.png" alt="gm3.PNG">
-
 <p>Doubleclick the terminal node to Add Values</p>
-
 <img src="images/gm4.png" alt="gm4.PNG">
 <p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm. The left side shows a table with the node values, and the right side shows the iteration process.</p>
 
 <img src="images/gm5.png" alt="gm5.PNG">
+
