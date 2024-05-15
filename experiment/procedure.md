@@ -17,13 +17,13 @@
 <p>choose  "Random" from the given options</br>
 Enter the depth and click on save button </p>
 
-<img src="images/game1.png" alt="game1.PNG">
-<P>Binary tree structure is shown below
-<img src="images/game2.png" alt="game2.PNG">
+<img src="./images/game1.png" alt="game1.PNG">
+<P>Binary tree structure is shown below</p>
+<img src="./images/game2.PNG" alt="game2.PNG">
 <p>Click on a terminal node to add values to that node.</p>
-<img src="images/game3.png" alt="game3.PNG">
+<img src="./images/game3.PNG" alt="game3.PNG">
 <p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm</p>
-<img src="images/game.png" alt="game.PNG">
+<img src="./images/game.PNG" alt="game.PNG">
 
 
 
@@ -32,15 +32,15 @@ Enter the depth and click on save button </p>
 
 <p>choose  "Manual" from the given options</p>
 
-<img src="images/gm1.png" alt="gm1.PNG">
+<img src="./images/gm1.PNG" alt="gm1.PNG">
 <p>Click on the canvas to create new nodes  </p>
 
-<img src="images/gm2.png" alt="gm2.PNG">
+<img src="./images/gm2.PNG" alt="gm2.PNG">
 <p> Select the nodes to connect the edges</p>
-<img src="images/gm3.png" alt="gm3.PNG">
+<img src="./images/gm3.PNG" alt="gm3.PNG">
 <p>Doubleclick the terminal node to Add Values</p>
-<img src="images/gm4.png" alt="gm4.PNG">
+<img src="./images/gm4.PNG" alt="gm4.PNG">
 <p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm. The left side shows a table with the node values, and the right side shows the iteration process.</p>
 
-<img src="images/gm5.png" alt="gm5.PNG">
+<img src="./images/gm5.PNG" alt="gm5.PNG">
 
