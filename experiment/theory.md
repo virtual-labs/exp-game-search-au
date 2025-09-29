@@ -1,21 +1,21 @@
- <h1>Minimax Algorithm in AI</h1>
+ <h4>Minimax Algorithm in AI</h4>
 
   <p>The <strong>Minimax Algorithm</strong> in AI is a <strong>backtracking algorithm</strong> used in <em>decision-making, game theory, and artificial intelligence</em>. 
   It is mainly applied in <strong>two-player turn-based games</strong> such as Chess, Tic-Tac-Toe, Checkers, and Go. 
   The goal of minimax is to determine the <strong>optimal move</strong> for a player, assuming that the opponent also plays <strong>optimally</strong>.</p>
 
-  <h2>Backtracking Concept</h2>
+  <h4>Backtracking Concept</h4>
   <p>A <strong>backtracking algorithm</strong> works by building a solution <em>incrementally, step by step</em>. 
   If a candidate step cannot lead to a valid solution, it is <strong>abandoned immediately</strong>, and the algorithm backtracks to try other possibilities.</p>
 
-  <h2>How Minimax Works</h2>
+  <h4>How Minimax Works</h4>
   <ul>
     <li>There are two players: <strong>Max</strong> (trying to maximize the score) and <strong>Min</strong> (trying to minimize Max’s score).</li>
     <li>The algorithm constructs a <strong>game tree</strong> where each node represents a possible state of the game.</li>
     <li>Minimax evaluates all possible moves, assuming both players play optimally, and chooses the move with the <strong>best guaranteed outcome</strong> for Max.</li>
   </ul>
 
-  <h2>Example: Tic-Tac-Toe</h2>
+  <h4>Example: Tic-Tac-Toe</h4>
   <p>Consider the current board (X = Max, O = Min):</p>
   <pre>
  X | O | X
@@ -25,7 +25,7 @@
 
   <p>Minimax evaluates all empty positions to determine the best move for Max.</p>
 
-  <h3>Game Tree Representation</h3>
+  <h4>Game Tree Representation</h4>
   <pre>
            Max
          /  |  \
