@@ -1,26 +1,24 @@
-body{
+body {
   margin: 0;
   padding: 0;
   overflow: hidden;
- 
 }
 
-.main{
+.main {
   width: 100%;
   height: 100vh;
   display: flex;
   border: 1px solid rgb(148, 17, 17);
 }
 
-
 #toolbar {
   width: 25%;
-  
+
   padding: 5px;
   background-color: #0f1629;
   border: 1px solid rgba(17, 85, 34, 0.664);
 }
-.graph{
+.graph {
   width: 80%;
   padding: 5px;
   background-color: #0f1629;
@@ -30,61 +28,56 @@ body{
 #mynetwork {
   width: 100%;
   height: 100%;
-  
+
   background-color: #0f1629;
 }
-#depth-label{
+#depth-label {
   margin-top: 10px;
   width: 70%;
   height: 3%;
   border-radius: 8px;
   margin-left: 5%;
-
 }
-#depth-button{
+#depth-button {
   height: 4%;
   width: 20%;
   background-color: #6870c6;
   margin: 0 auto;
   border-radius: 8px;
-
 }
-.button1{
+.button1 {
   width: 100%;
   height: 26px;
   background-color: #0f1629;
   border: 1px solid rgba(17, 85, 34, 0.664);
- 
+
   cursor: pointer;
 }
-.table-container{
+.table-container {
   border: 1px solid rgb(255, 255, 255) !important;
   border-collapse: collapse;
   margin-top: 10px;
- 
 }
-.table-container th{
-  border: 1px solid rgb(255, 255, 255) !important;
-  padding: 15px;
-  text-align: center;
-  color: white;
-  
-}
-.table-container td{
+.table-container th {
   border: 1px solid rgb(255, 255, 255) !important;
   padding: 15px;
   text-align: center;
   color: white;
 }
-.table-scroll{
-  
+.table-container td {
+  border: 1px solid rgb(255, 255, 255) !important;
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+.table-scroll {
   overflow: auto;
   height: 50%;
-  width:70%;
+  width: 70%;
   margin-left: 15%;
   margin-top: 30px;
 }
-#submit{
+#submit {
   margin-top: 10px;
   width: 80%;
   height: 40px;
@@ -93,42 +86,39 @@ body{
   cursor: pointer;
   border-radius: 8px;
   margin-left: 10%;
-
 }
-#submit:hover{
+#submit:hover {
   background-color: #9aabda;
   border: 1px solid rgba(17, 85, 34, 0.664);
   cursor: pointer;
 }
-#clear{
+#clear {
   width: 80%;
   height: 40px;
-  background-color:  #6870c6;
+  background-color: #6870c6;
   border: 1px solid rgba(17, 85, 34, 0.664);
   cursor: pointer;
   margin-top: 10px;
   border-radius: 8px;
   margin-left: 10%;
-
-  }
-#clear:hover{
+}
+#clear:hover {
   background-color: #9aabda;
   border: 1px solid rgba(17, 85, 34, 0.664);
   cursor: pointer;
 }
-.man a{
+.man a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   border: 1px solid rgb(122, 121, 121);
-  
 }
 
-.ran a{
+.ran a {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  border: 1px solid rgb(121,121, 121);
+  border: 1px solid rgb(121, 121, 121);
 }
-.rm{
+.rm {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -170,7 +160,7 @@ text-align: center;
   padding: 5px 0;
  
   /* Position the tooltiptext */
-  /* position: relative;
+/* position: relative;
   
   
 }
@@ -178,32 +168,221 @@ text-align: center;
 /* #right:hover .tooltiptext {
   visibility: visible;
 }*/
- 
-#operation-panel{
- 
+
+#operation-panel {
   width: 20%;
   height: 100%;
   background-color: #0f1629;
-  
 }
-#operations{
+#operations {
   width: 100%;
   height: 100%;
   background-color: #0f1629;
   font-size: 20px;
- 
- 
+
   color: yellow;
   padding-left: 10px;
   margin-top: 5%;
-  
 }
-.msg{
-  
-  width:20%;
+.msg {
+  width: 20%;
   overflow-x: scroll;
-
 }
-.light{
-  color:green;
+.light {
+  color: green;
+}
+/* Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Main container */
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  border: 1px solid rgb(148, 17, 17);
+  overflow: hidden;
+}
+
+/* Toolbar */
+#toolbar {
+  flex: 1 1 25%;
+  padding: 10px;
+  background-color: #0f1629;
+  border-right: 1px solid rgba(17, 85, 34, 0.664);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Graph container */
+.graph {
+  flex: 2 1 75%;
+  padding: 5px;
+  background-color: #0f1629;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Network graph */
+#mynetwork {
+  width: 100%;
+  height: 100%;
+  background-color: #0f1629;
+}
+
+/* Depth input and button */
+#depth-label {
+  margin-top: 10px;
+  width: 80%;
+  height: 35px;
+  border-radius: 8px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+#depth-button {
+  margin-top: 10px;
+  width: 80%;
+  height: 40px;
+  background-color: #6870c6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#depth-button:hover {
+  background-color: #9aabda;
+}
+
+/* Table styling */
+.table-scroll {
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table-container {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Buttons */
+#submit,
+#clear {
+  width: 80%;
+  height: 40px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #6870c6;
+  color: white;
+}
+
+#submit:hover,
+#clear:hover {
+  background-color: #9aabda;
+}
+
+/* Radio buttons */
+.rm {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 18px;
+  color: aliceblue;
+}
+
+/* Operation panel */
+#operation-panel {
+  width: 100%;
+  max-width: 300px;
+  background-color: #0f1629;
+  color: yellow;
+  padding: 10px;
+}
+
+#operations {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Tooltip inside operations */
+#tooltiptext p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #6870c6;
+}
+
+/* Messages */
+.msg {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #toolbar,
+  .graph {
+    width: 100%;
+    height: auto;
+  }
+
+  #mynetwork {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  #depth-label,
+  #depth-button,
+  #submit,
+  #clear {
+    width: 90%;
+  }
+
+  .rm {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+  }
+
+  #mynetwork {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  #mynetwork {
+    height: 250px;
+  }
+
+  #operations {
+    font-size: 16px;
+  }
+
+  #tooltiptext p {
+    font-size: 12px;
+  }
 }
