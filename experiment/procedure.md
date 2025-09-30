@@ -1,4 +1,3 @@
-<h3>Procedure</h3>
 <h5>The simulation steps</h5>
 
 1. Two modes: Random and Manual. By default, the Random mode is loaded with a random graph.
@@ -9,8 +8,6 @@
 6. Select nodes and connect them to create a tree structure. Double-click on a terminal node to add values.
 7. Click "Find Path" to run the algorithm and display the results of the min-max algorithm. The left side shows a table with the node values, and the right side shows the iteration process.
 8. To create another graph, click the "Reset" button to clear the canvas and start a new.
-
-
 
 <h6>Random</h6>
 
@@ -24,9 +21,6 @@ Enter the depth and click on save button </p>
 <img src="./images/game3.PNG" alt="game3.PNG">
 <p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm</p>
 <img src="./images/game.PNG" alt="game.PNG">
-
-
-
 
 <h6> Manual</h6>
 
@@ -43,4 +37,3 @@ Enter the depth and click on save button </p>
 <p>Click "Find Path" to run the algorithm and display the results of the min-max algorithm. The left side shows a table with the node values, and the right side shows the iteration process.</p>
 
 <img src="./images/gm5.PNG" alt="gm5.PNG">
-
