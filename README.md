@@ -1,9 +1,9 @@
 ## Introduction
 
-| <b>Discipline  | <b>Computer Science and Engineering               |
-| :------------- | :------------------------------------------------ |
-| <b> Lab        | <b> Artificial Intelligence                       |
-| <b> Experiment | <b> Perform and Visualize Breadth First Traversal |
+| <b>Discipline  | <b>Computer Science and Engineering |
+| :------------- | :---------------------------------- |
+| <b> Lab        | <b> Artificial Intelligence         |
+| <b> Experiment | <b> Mini-Max Algorithm              |
 
 ### About the Experiment
 
