@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+  <title>Vis.js Graph Editor</title>
+  <script type="text/javascript" src="js/vis-network.min.js"></script>
+  <link rel="stylesheet" href="">
+  
+   <link href="css/sub.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-		<!-- Your code goes here-->
+  <div class="main">
+  <div id="toolbar">
+    <div class="rm">
+      <!-- index.html in a radio button -->
+       <div class ="ran">
+           <input onchange="window.location.href='./index.html'" type="radio" name="mode" id="random" value="random" checked>
+           <label for="random">
+               
+               Random</a>
+           </label>
+</div>
+       <div class ="man">
+            <input onchange="window.location.href='./manual.html'" type="radio" name="mode" id="manual" value="manual" >
+           <label for="manual">
+              
+               Manual</a>
+           </label>
+       </div>
+   </div>
+    <input type="number" id="depth-label" placeholder="Enter the depth:">
+    <button id="depth-button" onclick="addGraph();" >Save</button>
+    
+    <div class="table-scroll">
+    <table class="table-container">
+      <thead>
+        <tr>
+         
+        </tr>
+      </thead>
+      <tbody id="table">
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+      </tbody>
+    </table>
+    </div>
+    
+    <button id="submit" onclick="copyValue();minmax( )">Find Path</button>
+    <button id="clear" onclick="reset();">clear</button>
+ 
+</div>
+<div class ="graph">
+  <!-- <div id="info1">
+    <div id="left">
+     
+    </div>
+     <div id="right">
+    Info
+    <span class="tooltiptext">
+      
+      <p>* click the terminal node to Add Values</p>
+    </span>
+   
+  </div>
+  </div> -->
+  <div id="mynetwork"></div>
+  
+  
+  <script type="text/javascript" src="js/option.js"></script>
+  <script type="text/javascript" src="js/test.js"></script>
+ 
+  
+</div>
+<div id="operation-panel">
+  <div id="head">
+    <h1 style="text-align: center;color: aliceblue;">Operations</h1>
+  </div>
+<div id="operations" >
+  <div id="op_info" style="color:#6870c6;font-size:20px">* Click the terminal node to Add Values</div>
+</div>
+</div>
+ 
+
 </body>
 </html>

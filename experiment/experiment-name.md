@@ -1,1 +1,2 @@
-## Experiment name
+## Mini-Max Algorithm
+
