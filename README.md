@@ -1,24 +1,22 @@
 ## Introduction
 
+| <b>Discipline  | <b>Computer Science and Engineering               |
+| :------------- | :------------------------------------------------ |
+| <b> Lab        | <b> Artificial Intelligence                       |
+| <b> Experiment | <b> Perform and Visualize Breadth First Traversal |
 
-<b>Discipline | <b>Fill your discipline name here
-:--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+### About the Experiment
 
-### About the Experiment 
-
-Fill a brief description of this experiment here
-
-<b>Name of Developer | <b> Fill the name of experiment owner here 
-:--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+| <b>Name of Developer | <b> Dr. Krishnashree Achuthan                  |
+| :------------------- | :--------------------------------------------- |
+| <b> Institute        | <b> Amrita Vishwa Vidyapeetham                 |
+| <b> Email id         | <b> krishna@amrita.edu                         |
+| <b> Department       | Center for Cyber Security Systems and Networks |
 
 ### Contributors List
 
-SrNo | Name | Faculty or Student | Department| Institute | Email id
-:--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+| SrNo | Name                 | Faculty or Student | Department                                     | Institute                  | Email id                 |
+| :--- | :------------------- | :----------------- | :--------------------------------------------- | :------------------------- | :----------------------- |
+| 1    | Dr. Sriram Sankaran  | Faculty            | Center for Cybersecurity Systems and Networks  | Amrita Vishwa Vidyapeetham | srirams@am.amrita.edu    |
+| 2    | Pavithra S P         | Faculty            | Center for Cyber Security Systems and Networks | Amrita Vishwa Vidyapeetham | pavithrasp@am.amrita.edu |
+| 3    | Bhavya Ottappurakkal | Faculty            | Center for Cyber Security Systems and Networks | Amrita Vishwa Vidyapeetham | bhavyao@am.amrita.edu    |
