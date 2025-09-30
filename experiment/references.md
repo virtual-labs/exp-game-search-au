@@ -1,4 +1,3 @@
-### References
 [vis.js](https://visjs.github.io/vis-network/docs/network/)
 
 [Javascript](https://www.w3schools.com/)
