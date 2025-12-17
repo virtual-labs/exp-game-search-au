@@ -1,0 +1,83 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "What is the MinMax algorithm used for?",
+        "answers": {
+          "a": "To minimize the maximum number of moves in a game.",
+          "b": "To maximize the minimum score in a game.",
+          "c": "To minimize the number of nodes in a search tree.",
+          "d": "To maximize the number of nodes in a search tree."
+          
+        },
+        
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "Which of the following best describes the MinMax algorithm?",
+        "answers": {
+          "a": "A greedy algorithm that chooses the best move at each step.",
+          "b": " A recursive algorithm that explores all possible moves and their outcomes.",
+          "c": "An iterative algorithm that uses dynamic programming to optimize the score.",
+          "d": "A heuristic algorithm that uses domain-specific knowledge to make decisions."
+          
+        },
+       
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "In the MinMax algorithm, what is the role of the maximizing player?",
+        "answers": {
+          "a": "To choose the move that maximizes their own score.",
+          "b": "To choose the move that minimizes the opponent's score.",
+          "c": "To choose the move that maximizes the opponent's score.",
+          "d": "To choose the move that minimizes their own score."
+          
+        },
+       
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "In the MinMax algorithm, what is the role of the minimizing player?",
+        "answers": {
+          "a": " To choose the move that maximizes their own score.",
+          "b": " To choose the move that minimizes the opponent's score",
+          "c": "To choose the move that maximizes the opponent's score.",
+          "d":"To choose the move that minimizes their own score."
+          
+        },
+       
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+  
+      {
+        "question": "Which of the following is an advantage of the MinMax algorithm?",
+        "answers": {
+          "a": "It guarantees an optimal solution.",
+          "b": " It is computationally efficient for large search spaces.",
+          "c": " It can handle games with imperfect information.",
+          "d": "It can be easily modified to handle different game rules."
+         
+        },
+        
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "Which of the following is a limitation of the MinMax algorithm?",
+        "answers": {
+          "a": " It requires perfect information about the game state.",
+          "b": "It is computationally expensive for large search spaces.",
+          "c": "It can only be used for two-player zero-sum games."
+        },
+        
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  
