@@ -23,6 +23,7 @@
 - Turn **ON** the *Step-by-Step Minimax* checkbox.
 
 Once enabled:
+
 ![Minimax Tic-Tac-Toe interface with three panels](images/game1.png)
 
 - The **Next Step** and **Play Move** buttons become Active.
@@ -32,7 +33,9 @@ Once enabled:
 ##### Step 3: Execute Step-by-Step Evaluation
 
 After making **your move (X)** on the game board:
+
 ![Minimax Tic-Tac-Toe interface with three panels](images/game2.png)
+
 1. Click **Next Step** to reveal the next stage of the Minimax evaluation.
 
    - The **AI Search Trace** panel (middle) updates to show:  
@@ -53,6 +56,7 @@ After making **your move (X)** on the game board:
 - Click the **Play Move** button.
 
 Once clicked:
+
 ![Minimax Tic-Tac-Toe interface with three panels](images/game3.png)
 
 - The AI (O) executes its **optimal move** as determined by the Minimax algorithm.
@@ -65,6 +69,7 @@ Once clicked:
 - Click the **Play Move** button to allow the AI (O) to execute its optimal move.
 
 Once the move is executed:
+
 ![Minimax Tic-Tac-Toe interface with three panels](images/game9.png)
 
 - The **game board** (left panel) updates with the AI’s placement (O mark).
@@ -84,7 +89,9 @@ Once the move is executed:
 - Continue the game by alternating:  
   - Make your move (X) on the board.  
   - Use **Next Step** (if desired) to watch the AI's evaluation, then click **Play Move** for the AI's response.
+
 ![Minimax Tic-Tac-Toe interface with three panels](images/game10.jpeg)
+
 - Repeat until the board is full or a player wins (no further moves possible).
 
 - The final result is displayed prominently on the **game board** (e.g., "Game Over: Draw", "You Win!", or "AI Wins!").
