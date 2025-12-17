@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Minimax Game Search – Pure HTML/JS</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="layout layout-three">
+      <!-- Column 1: Game Board -->
+      <div class="panel board-container">
+        <div class="panel-header">
+          <h3 style="text-align: left">Minimax Tic-Tac-Toe</h3>
+          <button class="info-btn" data-info="board-info">i</button>
+        </div>
+        <div id="board-info" class="info-content">
+          <div class="info-card">
+            <button class="info-close-btn" data-info="board-info">x</button>
+            <h4>How to Play</h4>
+
+            <p>
+              This is a classic game where two players take turns marking
+              squares in a 3x3 grid. The goal is to get three of your marks in a
+              row, either horizontally, vertically, or diagonally, before your
+              opponent.
+            </p>
+            <p>
+              You are <strong>X</strong>, and the AI is <strong>O</strong>.
+              Click any empty square to make your move. The AI uses the
+              <strong>Minimax algorithm</strong> to find the optimal move.
+            </p>
+            <h5>Step-by-step Minimax</h5>
+            <ul>
+              <li>
+                Enable <strong>"Step-by-step Minimax"</strong> to pause the AI's
+                analysis after your turn.
+              </li>
+              <li>
+                <strong>Next step:</strong> Reveals the next move the AI
+                evaluates.
+              </li>
+              <li>
+                <strong>Play move:</strong> Skips the analysis and executes the
+                AI's best move.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="board" class="board"></div>
+        <div class="status" id="statusText">Your turn (X)</div>
+        <div id="stepBanner" class="banner hidden"></div>
+        <div class="controls">
+          <label class="toggle">
+            <input type="checkbox" id="stepToggle" />
+            <span>Step-by-step Minimax</span>
+          </label>
+          <div class="step-actions">
+            <button id="showStepBtn" disabled>Next step</button>
+            <button id="playMoveBtn" disabled>Play move</button>
+          </div>
+          <button onclick="resetGame() ">Reset Game</button>
+        </div>
+        <div class="legend">
+          <span class="chip chip-human">X = You</span>
+          <span class="chip chip-ai">O = AI</span>
+          <span class="chip chip-draw">AI uses minimax</span>
+        </div>
+        <div id="winNote" class="info-card hidden"></div>
+      </div>
+
+      <!-- Column 2: Minimax Trace -->
+      <div class="panel">
+        <div class="panel-header">
+          <h3>AI Search Trace</h3>
+          <button class="info-btn" data-info="trace-info">i</button>
+        </div>
+        <div id="trace-info" class="info-content">
+          <div class="info-card">
+            <h4>How to Read the Search Trace</h4>
+            <ul>
+              <li>The trace shows the AI's thought process.</li>
+              <li>
+                <strong>Depth:</strong> How many moves the AI is thinking ahead.
+              </li>
+              <li>
+                <strong>MAX (AI):</strong> The AI is trying to get the highest
+                score.
+              </li>
+              <li>
+                <strong>MIN (Human):</strong> The AI assumes you will try to get
+                the lowest score.
+              </li>
+              <li>The final score determines the AI's chosen move.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="trace-legend">
+          <!-- <span class="legend-chip legend-max">MAX = AI</span>
+        <span class="legend-chip legend-min">MIN = Human</span>
+        <span class="legend-chip legend-root">ROOT</span> -->
+        </div>
+        <div id="trace"></div>
+      </div>
+
+      <!-- Column 3: Tree Reference -->
+      <div class="panel tree-panel">
+        <div class="panel-header">
+          <h3>Minimax Tree</h3>
+          <button class="info-btn" data-info="tree-info">i</button>
+        </div>
+        <div id="tree-info" class="info-content">
+          <div class="info-card">
+            <h4>How to Read the Tree</h4>
+            <p>
+              Hover over a node in the tree to highlight the corresponding
+              square on the Tic-Tac-Toe board.
+            </p>
+            <ul>
+              <li>
+                The tree visualizes the game possibilities explored by the AI.
+              </li>
+              <li>Each node is a potential move with its calculated score.</li>
+              <li>
+                <strong>MAX nodes:</strong> Moves where the AI is trying to
+                maximize its score.
+              </li>
+              <li>
+                <strong>MIN nodes:</strong> Moves where the AI anticipates you
+                will try to minimize its score.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mini-tree">
+          <div id="miniTreeList" class="mini-tree-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/script.js" defer></script>
+  </body>
+</html>
