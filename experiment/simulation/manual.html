@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vis.js Graph Editor</title>
+  <script type="text/javascript" src="js/vis-network.min.js"></script>
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=cyrillic" rel="stylesheet" referrerpolicy="origin">
+
+   <link href="css/sub.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div class="main">
+  <div id="toolbar">
+    <div class="rm">
+      <!-- index.html in a radio button -->
+       <div class ="ran">
+           <input onchange="window.location.href='./index.html'" type="radio" name="mode" id="random" value="random" >
+           <label for="random">
+               
+               Random</a>
+           </label>
+</div>
+       <div class ="man">
+            <input onchange="window.location.href='./manual.html'" type="radio" name="mode" id="manual" value="manual"checked >
+           <label for="manual">
+              
+               Manual</a>
+           </label>
+       </div>
+   </div>
+    <input type="number" id="depth-label" placeholder="Enter the depth:" disabled>
+   
+   
+    
+      <div class="table-scroll">
+        <table class="table-container">
+          <thead>
+            <tr>
+             
+            </tr>
+          </thead>
+          <tbody id="table1">
+    
+          </tbody>
+        </table>
+        </div>
+    
+    <button id="submit" onclick="copyValues();minmax1( )">Find Path</button>
+    <button id="clear" onclick="resetGraph();">clear</button>
+ 
+</div>
+<div class ="graph">
+  <!-- <div id="info1">
+    <div id="left">
+     
+  </div>
+  <div id="right">
+    Info
+    <span class="tooltiptext">
+      <p>* Doubleclick the screen to Add Nodes </p>
+      <p>* Select the nodes to connect the edges</p>
+      <p>* Doubleclick the terminal node to Add Values</p>
+    </span>
+   
+  </div>
+</div> -->
+  <div id="mynetwork"></div>
+
+  <script type="text/javascript" src="js/option.js"></script>
+  <script type="text/javascript" src="js/manual/manualtest.js"></script>
+  
+ 
+  
+</div>
+<div id="operation-panel">
+  <div id="head">
+    <h1 style="text-align: center;color: aliceblue;">Operations</h1>
+  </div>
+<div id="operations">
+  <div id="tooltiptext" style="font-size:20px;color:#6870c6;">
+    <p>* Doubleclick the screen to Add Nodes </p>
+    <p>* Select the nodes to connect the edges</p>
+    <p>* Doubleclick the terminal node to Add Values</p>
+  </div>
+</div>
+</div>
+ 
+
+</body>
+</html>
