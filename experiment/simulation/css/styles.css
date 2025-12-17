@@ -1,0 +1,629 @@
+/* --- Base Styles & Fonts --- */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #f0f2f5;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+
+/* --- Layout --- */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  height: calc(100vh - 40px);
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+   overflow: auto;
+  height: calc(100vh-100px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* height: 100%; Removed this to allow flexbox to distribute height better */
+}
+
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  color: #1a202c;
+  font-size: 20px; /* Unify font size */
+  text-align: left; /* Ensure headings are left-aligned */
+}
+
+/* --- Info Button & Content --- */
+.info-btn {
+  background: #edf2f7;
+  border: none;
+  color: #4a5568;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.info-btn:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.1);
+}
+
+.info-content {
+  display: none;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  animation: fadeIn 0.3s ease;
+  flex-shrink: 0; /* Prevent info content from shrinking */
+}
+
+.info-content.show-instructions {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card {
+  position: relative;
+}
+
+.info-card h4 {
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 16px; /* Consistent with overall info text */
+}
+
+.info-card p {
+  margin: 0 0 10px;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-card ul {
+  padding-left: 20px;
+  margin: 0;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-card li {
+  margin-bottom: 6px;
+}
+
+.info-close-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #edf2f7;
+  border: none;
+  color: #718096;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.info-close-btn:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.1);
+}
+
+/* --- Board & Cells --- */
+.board-container {
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 10px;
+  background: #e2e8f0;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  font-size: 42px;
+  font-weight: 700;
+  cursor: pointer;
+    position: relative;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #4a5568;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+.cell-score::after {
+  content: attr(data-score);
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a202c;
+  background: #edf2f7;
+  padding: 3px 7px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 10;
+}
+.cell:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.cell.cell-human {
+  color: #3182ce; /* Blue for 'X' */
+}
+
+.cell.cell-ai {
+  color: #dd6b20; /* Orange for 'O' */
+}
+
+.cell.win {
+  background-color: #c6f6d5; /* Green */
+  animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- Controls & Buttons --- */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.controls button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #4299e1;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover:enabled {
+  background-color: #3182ce;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.step-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.step-actions button {
+  background-color: #718096;
+}
+
+.step-actions button:hover:enabled {
+  background-color: #4a5568;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+/* --- Status & Legend --- */
+.status {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  color: white;
+}
+
+.status-human {
+  background-color: #3182ce;
+}
+.status-ai {
+  background-color: #dd6b20;
+}
+.status-over {
+  background-color: #c53030;
+}
+.status-draw {
+  background-color: #718096;
+}
+
+.legend {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.chip {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2d3748;
+  background-color: #e2e8f0;
+}
+
+/* --- Trace & Tree --- */
+#trace {
+  flex-grow: 1; /* Allow to dynamically fill space */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 0;
+  overflow: auto;
+  height: calc(100vh - 250px);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 13px;
+  background-color: #f7fafc;
+  display: flex; /* Make #trace a flex container */
+  flex-direction: column; /* Stack children vertically */
+}
+
+.trace-depth-section {
+  flex-grow: 1; /* Make the depth section fill remaining space */
+  overflow: auto; /* Enable scrolling for detailed trace lines */
+  min-height: 0; /* Allow shrinking */
+}
+
+.tree-panel .mini-tree {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  overflow: auto;
+  height: calc(100vh - 250px); /* Explicit height for scrolling, retained for tree consistency */
+  min-height: 0; /* Allow shrinking */
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 13px;
+  background-color: #f7fafc;
+}
+
+/* --- Redesigned Trace Styles --- */
+.root-summary {
+  padding: 12px;
+  background: #edf2f7;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  flex-shrink: 0; /* Prevent from shrinking */
+}
+.root-summary-title {
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+.root-summary-instruction {
+  font-size: 12px;
+  font-style: italic;
+  color: #718096;
+  margin-bottom: 8px;
+}
+.root-moves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 100px; /* Make this section scrollable */
+  overflow-y: auto;
+  padding-right: 5px; /* Space for scrollbar */
+}
+.root-chip {
+  padding: 6px 12px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #cbd5e0;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+.root-chip.best {
+  background: #c6f6d5;
+  border-color: #38a169;
+  font-weight: 700;
+}
+.trace-guide {
+  font-size: 12px;
+  color: #718096;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.trace-section {
+  border-bottom: 1px solid #e2e8f0;
+}
+.trace-section:last-child {
+  border-bottom: none;
+}
+.trace-depth-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #f7fafc;
+  cursor: pointer;
+  font-weight: 700;
+}
+.trace-lines {
+  padding: 8px;
+}
+.trace-depth-caption {
+  font-style: italic;
+  color: #718096;
+  padding: 4px 0 8px;
+  font-size: 12px;
+}
+.trace-line {
+  display: grid;
+  grid-template-columns: 40px 1fr 50px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+.trace-depth {
+  font-weight: 700;
+  color: #a0aec0;
+}
+.trace-text {
+  color: #4a5568;
+}
+.score-badge {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+}
+
+.trace-max {
+  background-color: #feebc8;
+}
+.trace-max .score-badge {
+  background: white;
+  color: #9c4221;
+}
+
+.trace-min {
+  background-color: #bee3f8;
+}
+.trace-min .score-badge {
+  background: white;
+  color: #2a4365;
+}
+
+.trace-root {
+  background-color: #e2e8f0;
+}
+.trace-root .score-badge {
+  background: white;
+  color: #2d3748;
+}
+
+/* --- New Tree Styles --- */
+.tree-root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.tree-node-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  white-space: nowrap; /* Prevent nodes from wrapping */
+}
+
+.tree-node {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+.tree-bubble {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.tree-role-max .tree-bubble {
+  background: #feebc8;
+  color: #9c4221;
+}
+.tree-role-min .tree-bubble {
+  background: #bee3f8;
+  color: #2a4365;
+}
+.tree-role-root .tree-bubble {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.tree-tag {
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.tree-meta {
+  font-size: 11px;
+  color: #718096;
+}
+
+.tree-children {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-left: 30px;
+  padding-left: 30px;
+  border-left: 2px solid #cbd5e0;
+}
+
+/* --- Connector Lines --- */
+.tree-node-wrapper {
+  position: relative;
+}
+
+/* Horizontal line from parent */
+.tree-node-wrapper::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 2px;
+  background-color: #cbd5e0;
+  z-index: 0;
+}
+
+/* Hide line for root nodes */
+.tree-root > .tree-node-wrapper::before {
+  display: none;
+}
+
+.tree-highlight {
+  border-color: #38a169;
+  box-shadow: 0 0 8px rgba(56, 161, 105, 0.5);
+}
+
+.cell-hover {
+  box-shadow: 0 0 0 4px #3182ce !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.focused-trace {
+  margin-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+}
+
+.trace-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.trace-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.trace-card-header {
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.trace-card-score {
+  font-size: 14px;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.trace-card-explanation {
+  font-size: 13px;
+  color: #718096;
+  line-height: 1.5;
+}
