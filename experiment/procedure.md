@@ -57,7 +57,7 @@ After making **your move (X)** on the game board:
 
 Once clicked:
 
-![Minimax Tic-Tac-Toe interface with three panels](images/game3.png)
+![Minimax Tic-Tac-Toe interface with three panels](images/game3.PNG)
 
 - The AI (O) executes its **optimal move** as determined by the Minimax algorithm.
 - The **game board** updates immediately to reflect the AI’s placement.
