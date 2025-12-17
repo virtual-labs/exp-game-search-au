@@ -34,7 +34,7 @@ Once enabled:
 
 After making **your move (X)** on the game board:
 
-![Minimax Tic-Tac-Toe interface with three panels](images/game2.png)
+![Minimax Tic-Tac-Toe interface with three panels](images/game2.PNG)
 
 1. Click **Next Step** to reveal the next stage of the Minimax evaluation.
 
